@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Henry Barrera</title>
+  <meta name="description" content="Henry Barrera - M.Sc. student in Applied Mathematics, Universidad Nacional de Colombia. Discrete optimization, mathematical modelling, scientific computing.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Henry Barrera</h1>
+  <p class="tagline">Applied Mathematics &middot; Optimization &middot; Mathematical Modelling &middot; Universidad Nacional de Colombia</p>
+  <nav>
+    <a href="#research">Research</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#talks">Talks</a>
+    <a href="#teaching">Tutoring</a>
+    <a href="#contact">Contact</a>
+    <a href="cv/cv.pdf">CV (PDF)</a>
+  </nav>
+</header>
+
+<section id="about">
+  <p>I am an M.Sc. student in Applied Mathematics at the
+  <a href="https://bogota.unal.edu.co/">Universidad Nacional de Colombia, Bogot&aacute;</a>,
+  where I also earned my professional degree in Mathematics (<em>Matem&aacute;tico</em>, 2026). My thesis, supervised by
+  Prof. <a href="https://dgroldan.github.io/">Diego Gerardo Rold&aacute;n</a>, studies discrete
+  optimization problems &mdash; starting with the Traveling Salesman Problem &mdash; and how
+  they can be formulated for quantum computing.</p>
+
+  <p>Most of my work follows the same path: take a real phenomenon, write a mathematical model
+  for it, solve it numerically, estimate its parameters from data, and then ask how much the
+  model can actually be trusted. I have followed this path with epidemics, satellite orbits,
+  power grids and laboratory assays, mostly in Python and Julia.</p>
+
+  <p class="motto">A model earns my trust when the mathematics, the algorithm and the data agree
+  with each other.</p>
+</section>
+
+<section id="research">
+  <h2>Research</h2>
+  <p>My M.Sc. thesis (in progress, 2026&ndash;) builds on
+  <a href="https://doi.org/10.1016/j.ejor.2025.07.063">Bochkarev et al., <em>Quantum computing for
+  discrete optimization: a highlight of three technologies</em> (EJOR, 2025)</a>.
+  The first stage is classical: I model the TSP with the Dantzig&ndash;Fulkerson&ndash;Johnson,
+  Miller&ndash;Tucker&ndash;Zemlin and quadratic-assignment formulations, compare their size,
+  and solve benchmark instances with Gurobi. The next stage reformulates the problem as a
+  QUBO, the input format of quantum annealers and variational quantum algorithms.</p>
+
+  <ul class="topics">
+    <li><strong>Discrete optimization &amp; operations research</strong>
+      <span>Integer programming formulations, TSP and routing, exact, approximation and heuristic methods.</span></li>
+    <li><strong>Quantum optimization</strong>
+      <span>QUBO models, quantum annealing, variational algorithms.</span></li>
+    <li><strong>Mathematical modelling &amp; scientific computing</strong>
+      <span>Differential equation models, numerical integrators, stability, dynamical systems.</span></li>
+    <li><strong>Parameter estimation &amp; uncertainty</strong>
+      <span>Least squares, Bayesian inference and MCMC, Monte Carlo, bootstrap.</span></li>
+  </ul>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="item">
+    <div class="title">Student research assistant &mdash; HERMES 500 project</div>
+    <div class="meta">Universidad Nacional de Colombia &middot; 2026 &middot; Supervisor: Prof. Vladimir Angulo Castillo &middot;
+      <a href="https://github.com/Henry2899/ic50-uncertainty-toolkit">toolkit (synthetic data)</a></div>
+    <p>Statistical analysis of antioxidant activity in plant extracts. I built a reproducible
+    Python workflow for the DPPH assay, estimated IC<sub>50</sub> values by ordinary and weighted
+    least squares, quantified their uncertainty with the delta method, Monte Carlo and bootstrap,
+    and designed a Mamdani fuzzy inference system that combines potency and experimental precision
+    into a single ranking index. I also carried out a methodological audit of a fuzzy model
+    proposed within the project and an ANOVA-based analysis of total phenolic content across
+    five species.</p>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Selected projects</h2>
+
+  <div class="item">
+    <div class="title">Simulated annealing for the Traveling Salesman Problem</div>
+    <div class="meta">H. Barrera, L. Torres &middot; Markov Chains course project, 2026 &middot;
+      <a href="https://github.com/Henry2899/cadenas-markov-aplicaciones">repository</a></div>
+    <p>Simulated annealing for the TSP, studied as a Markov chain on the space of tours.</p>
+  </div>
+
+  <div class="item">
+    <div class="title">Siting distributed solar generation on an urban power grid</div>
+    <div class="meta">Exploratory thesis project, 2026 &middot; <a href="https://github.com/Henry2899/pvgraph">repository</a></div>
+    <p>Groundwork for siting photovoltaic generation in the distribution grid of Yopal (Casanare):
+    a Python package with 44 automated tests that builds the network as a graph (NetworkX),
+    validates its data, and checks voltages (LinDistFlow), line loading, losses and radiality on a
+    reproducible 322-node synthetic network. The mixed-integer siting model
+    and the demand-forecasting stage were formulated but not implemented before the project was
+    paused.</p>
+  </div>
+
+  <div class="item">
+    <div class="title">An HSIR model of dengue in Neiva, 2024</div>
+    <div class="meta">H. Barrera, M. Cald&oacute;n, A. Puenay&aacute;n &middot; Numerical Analysis course
+      (Prof. Juan Carlos Galvis), 2025 &middot;
+      <a href="https://github.com/Henry2899/dengue-hsir-neiva">repository</a></div>
+    <p>A compartmental model fitted to the 2024 outbreak by least squares and Bayesian inference
+    (Turing.jl), with a comparison of five numerical integrators. I built the dataset from the weekly
+    epidemiological bulletins of Huila: I wrote extraction scripts (Python, regular expressions, OCR)
+    for a format that changed during the year, and completed the data by manual transcription where
+    the automatic extraction was not reliable.</p>
+  </div>
+
+  <div class="item">
+    <div class="title">Orbital modelling of the Starlink-1106 satellite</div>
+    <div class="meta">S. Adame, H. Barrera, D. Gay&oacute;n, A. Gonz&aacute;lez &middot; Mathematical Modelling I course, 2025 &middot;
+      <a href="https://github.com/Henry2899/starlink-1106-orbit">repository</a></div>
+    <p>Four models of increasing complexity &mdash; from Newtonian gravity to Earth oblateness,
+    atmospheric drag, lunar and solar perturbations and relativistic corrections &mdash; fitted
+    to real ephemeris data with Nelder&ndash;Mead and Metropolis&ndash;Hastings in Julia. The best
+    model reduced the fitting residual by almost three orders of magnitude.</p>
+  </div>
+</section>
+
+<section id="talks">
+  <h2>Talks and seminars</h2>
+
+  <div class="item">
+    <div class="title">Experimental mathematics in combinatorics: cases, symmetries and computation</div>
+    <div class="meta"><a href="https://sites.google.com/view/encuentrocombinata/inicio">Combinata</a>:
+      Encuentro de Combinatoria, &Aacute;lgebra, Teor&iacute;a de N&uacute;meros y sus Aplicaciones &middot;
+      UPTC, Duitama &middot; December 2026 &middot; in Spanish</div>
+  </div>
+
+  <div class="item">
+    <div class="title">Chasing the Shortest Route: Inside the Traveling Salesman Problem</div>
+    <div class="meta">Seminario de Matem&aacute;tica Aplicada &middot; Department of Mathematics,
+      Universidad Nacional de Colombia &middot; 24 November 2026</div>
+    <p>An introduction to the TSP as an optimization problem, comparing classical formulations
+    and showing how the modelling choice affects how efficiently a computer finds the optimal route.</p>
+  </div>
+
+  <div class="item">
+    <div class="title">The Lorenz attractor and the geometric Lorenz attractor</div>
+    <div class="meta">Hyperbolic Dynamics seminar &middot; Universidad Nacional de Colombia &middot; July 2026</div>
+  </div>
+</section>
+
+<section id="teaching">
+  <h2>Tutoring</h2>
+  <p>I have tutored mathematics since 2023, first as a mathematics tutor at the Universidad
+  Nacional de Colombia (2023) and since then as a private tutor. I like to pair the formal
+  argument with a computation or a picture, so that students can see an idea working before
+  they prove it.</p>
+</section>
+
+<section id="skills">
+  <h2>Tools</h2>
+  <p><strong>Python</strong> (NumPy, SciPy, pandas, statsmodels, NetworkX, matplotlib, pytest),
+  <strong>Julia</strong> (DifferentialEquations.jl, Turing.jl, Optim.jl),
+  <strong>optimization solver</strong> Gurobi (gurobipy), SQL, LaTeX, Git.</p>
+  <p><strong>Languages:</strong> Spanish (native), English (B1), Italian (beginner).</p>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact</h2>
+  <p>Department of Mathematics<br>
+  Universidad Nacional de Colombia<br>
+  Bogot&aacute;, Colombia</p>
+  <p style="margin-top:0.8rem">Email: hbarrera [at] unal.edu.co</p>
+  <p><a href="https://www.linkedin.com/in/henry-barrera-3422981aa">LinkedIn</a> &middot;
+     <a href="https://github.com/Henry2899">GitHub</a> &middot;
+     CV (PDF): <a href="cv/cv.pdf">English</a> &middot; <a href="cv/cv-es.pdf">espa&ntilde;ol</a></p>
+</section>
+
+<footer>Henry Barrera &middot; 2026</footer>
+
+</div>
+</body>
+</html>

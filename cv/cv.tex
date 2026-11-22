@@ -1,0 +1,183 @@
+\documentclass[11pt,a4paper]{article}
+
+% ==================================================
+% Paquetes
+% ==================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage[top=1.8cm,bottom=1.8cm,left=2cm,right=2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{microtype}
+\usepackage{hyperref}
+
+\definecolor{azul}{RGB}{28,70,110}
+\definecolor{gris}{RGB}{90,90,90}
+
+\hypersetup{colorlinks=true, urlcolor=azul, linkcolor=azul,
+  pdftitle={Henry Barrera - CV}, pdfauthor={Henry Barrera}}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.2em, itemsep=1pt, topsep=2pt}
+
+\titleformat{\section}{\large\scshape\color{azul}}{}{0em}{}[\vspace{-0.6ex}\color{azul}\rule{\textwidth}{0.4pt}]
+\titlespacing*{\section}{0pt}{1.6ex}{1ex}
+
+% Telefono: solo aparece si existe cv/phone.tex (archivo local, ignorado por git).
+
+% \entry{titulo}{fechas}{lugar / contexto}
+\newcommand{\entry}[3]{%
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X@{\hspace{1em}}r@{}}
+    \textbf{#1} & {\color{gris}#2}
+  \end{tabularx}\\
+  {\color{gris}\small #3}\par\vspace{2pt}}
+
+\begin{document}
+
+% ==================================================
+% Encabezado
+% ==================================================
+\begin{center}
+  {\LARGE\scshape Henry Barrera}\\[4pt]
+  {\color{gris} M.Sc. student in Applied Mathematics \textperiodcentered{} Bogot\'a, Colombia}\\[3pt]
+  \small
+  \href{mailto:hbarrera@unal.edu.co}{hbarrera@unal.edu.co}
+  \IfFileExists{phone.tex}{\textperiodcentered{} \input{phone.tex}}{}
+  \textperiodcentered{} \href{https://henry2899.github.io}{henry2899.github.io}
+  \textperiodcentered{} \href{https://github.com/Henry2899}{GitHub}
+  \textperiodcentered{} \href{https://www.linkedin.com/in/henry-barrera-3422981aa}{LinkedIn}
+\end{center}
+
+% ==================================================
+\section{Profile}
+% ==================================================
+Mathematician from the Universidad Nacional de Colombia, currently pursuing an M.Sc.\ in Applied
+Mathematics with a thesis on discrete optimization and quantum computing. I build mathematical models
+of real problems, solve them numerically, estimate their parameters from data and assess how far the
+results can be trusted. Experience with integer programming, differential equation models, Bayesian
+inference and uncertainty quantification, mostly in Python and Julia.
+
+% ==================================================
+\section{Education}
+% ==================================================
+\entry{M.Sc.\ in Applied Mathematics}{2026 -- expected 2028}{Universidad Nacional de Colombia, Bogot\'a}
+Thesis (in progress): discrete optimization and quantum computing, with the Traveling Salesman Problem
+as reference problem.
+
+\vspace{4pt}
+\entry{Matem\'atico (professional degree in Mathematics)}{2019 -- 2026}{Universidad Nacional de Colombia, Bogot\'a}
+
+% ==================================================
+\section{Research experience}
+% ==================================================
+\entry{Student research assistant -- HERMES 500 project}{2026}{Universidad Nacional de Colombia
+  \textperiodcentered{} Supervisor: Prof.\ Vladimir Angulo Castillo \textperiodcentered{}
+  \href{https://github.com/Henry2899/ic50-uncertainty-toolkit}{toolkit (synthetic data)}}
+\begin{itemize}
+  \item Built a reproducible Python workflow for the DPPH antioxidant assay; estimated IC$_{50}$
+        values by ordinary and weighted least squares.
+  \item Quantified the uncertainty of IC$_{50}$ with three independent methods: delta method,
+        Monte Carlo simulation and nonparametric bootstrap.
+  \item Designed a Mamdani fuzzy inference system (2 inputs, 9 rules) that combines antioxidant
+        potency and experimental precision into a 0--100 ranking index.
+  \item Audited a fuzzy model proposed within the project and reported 8 methodological issues
+        (interpolation and extrapolation assumptions, membership functions, incomplete rules).
+  \item Analysed total phenolic content across five plant species with ANOVA, Tukey comparisons
+        and assumption checks (Shapiro--Wilk, Levene).
+\end{itemize}
+
+% ==================================================
+\section{Projects}
+% ==================================================
+\entry{Discrete optimization and quantum computing (M.Sc.\ thesis)}{2026 -- present}{Based on Bochkarev
+  et al., \emph{European Journal of Operational Research} (2025)}
+\begin{itemize}
+  \item Modelled the TSP with the Dantzig--Fulkerson--Johnson, Miller--Tucker--Zemlin and
+        quadratic-assignment formulations and compared their size.
+  \item Solved benchmark instances with Gurobi; next stage: QUBO reformulation for quantum
+        annealing and variational quantum algorithms.
+\end{itemize}
+
+\entry{Siting distributed solar generation on an urban power grid}{2026}{Exploratory thesis project,
+  paused \textperiodcentered{} Python, NetworkX \textperiodcentered{} \href{https://github.com/Henry2899/pvgraph}{repository}}
+\begin{itemize}
+  \item Built a Python package (44 automated tests) for the distribution grid of Yopal (Casanare):
+        graph construction, data validation, and voltage (LinDistFlow), loading, loss and radiality
+        checks on a reproducible 322-node synthetic network.
+  \item Formulated a mixed-integer model for siting photovoltaic generation and a demand-forecasting
+        stage; not implemented before the project was paused.
+\end{itemize}
+
+\entry{Simulated annealing for the Traveling Salesman Problem}{2026}{Markov Chains course
+  \textperiodcentered{} with L.\ Torres \textperiodcentered{}
+  \href{https://github.com/Henry2899/cadenas-markov-aplicaciones}{repository}}
+\begin{itemize}
+  \item Simulated annealing studied as a Markov chain on the space of tours.
+\end{itemize}
+
+\entry{An HSIR model of dengue in Neiva, 2024}{2025}{Numerical Analysis course (Prof.\ Juan Carlos
+  Galvis) \textperiodcentered{} team of three \textperiodcentered{} Python, Julia \textperiodcentered{}
+  \href{https://github.com/Henry2899/dengue-hsir-neiva}{repository}}
+\begin{itemize}
+  \item Built the dataset from the weekly epidemiological bulletins of Huila: wrote extraction
+        scripts for a format that changed during the year (PyMuPDF, pdfplumber, regular expressions,
+        OCR with pytesseract) and completed the data by manual transcription where the automatic
+        extraction was unreliable.
+  \item The team fitted the model by least squares and Bayesian inference (Turing.jl) and compared
+        five numerical integrators.
+\end{itemize}
+
+\entry{Orbital modelling of the Starlink-1106 satellite}{2025}{Mathematical Modelling I course
+  \textperiodcentered{} team of four \textperiodcentered{} Julia \textperiodcentered{}
+  \href{https://github.com/Henry2899/starlink-1106-orbit}{repository}}
+\begin{itemize}
+  \item Four orbital models of increasing complexity (Earth oblateness, atmospheric drag, lunar and
+        solar perturbations, relativistic corrections) fitted to real ephemeris data with
+        Nelder--Mead and Metropolis--Hastings.
+  \item The best model reduced the least-squares residual from $1.96\times10^{9}$ to
+        $2.87\times10^{6}$.
+\end{itemize}
+
+% ==================================================
+\section{Talks and seminars}
+% ==================================================
+\entry{Experimental mathematics in combinatorics: cases, symmetries and computation}{Dec 2026}{Combinata:
+  Encuentro de Combinatoria, \'Algebra, Teor\'ia de N\'umeros y sus Aplicaciones \textperiodcentered{}
+  UPTC, Duitama \textperiodcentered{} in Spanish}
+\entry{Chasing the Shortest Route: Inside the Traveling Salesman Problem}{Nov 2026}{Seminario de
+  Matem\'atica Aplicada \textperiodcentered{} Universidad Nacional de Colombia}
+\entry{The Lorenz attractor and the geometric Lorenz attractor}{Jul 2026}{Hyperbolic Dynamics
+  seminar \textperiodcentered{} Universidad Nacional de Colombia}
+
+% ==================================================
+\section{Tutoring}
+% ==================================================
+Mathematics tutor, Universidad Nacional de Colombia (Feb -- Jun 2023) \textperiodcentered{}
+Private tutor in mathematics, Bogot\'a (2023 -- present)
+
+% ==================================================
+\section{Skills}
+% ==================================================
+\begin{tabularx}{\textwidth}{@{}p{3.2cm}X@{}}
+  Programming & Python (NumPy, SciPy, pandas, statsmodels, NetworkX, matplotlib, pytest),
+                Julia (DifferentialEquations.jl, Turing.jl, Optim.jl), SQL \\
+  Optimization & Integer programming with Gurobi (gurobipy), heuristics and metaheuristics \\
+  Statistics & Regression (OLS/WLS), ANOVA, Bayesian inference and MCMC, Monte Carlo, bootstrap \\
+  Other & \LaTeX, Git, Power BI, Excel \\
+  Languages & Spanish (native), English (B1), Italian (beginner)
+\end{tabularx}
+
+% ==================================================
+\section{Additional training}
+% ==================================================
+Python for Data Science (Pontificia Universidad Cat\'olica de Chile) \textperiodcentered{}
+Data Analysis and Visualization (University at Buffalo) \textperiodcentered{}
+Hypothesis Testing with Python and Excel (Tufts University) \textperiodcentered{}
+Corporate Finance specialization (UNAM)
+
+\end{document}

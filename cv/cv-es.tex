@@ -1,0 +1,187 @@
+\documentclass[11pt,a4paper]{article}
+
+% ==================================================
+% Paquetes
+% ==================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+\babelprovide[import,main]{spanish}
+\usepackage{lmodern}
+\usepackage[top=1.8cm,bottom=1.8cm,left=2cm,right=2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{microtype}
+\usepackage{hyperref}
+
+\definecolor{azul}{RGB}{28,70,110}
+\definecolor{gris}{RGB}{90,90,90}
+
+\hypersetup{colorlinks=true, urlcolor=azul, linkcolor=azul,
+  pdftitle={Henry Barrera - Hoja de vida}, pdfauthor={Henry Barrera}}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.2em, itemsep=1pt, topsep=2pt}
+
+\titleformat{\section}{\large\scshape\color{azul}}{}{0em}{}[\vspace{-0.6ex}\color{azul}\rule{\textwidth}{0.4pt}]
+\titlespacing*{\section}{0pt}{1.6ex}{1ex}
+
+% Telefono: solo aparece si existe cv/phone.tex (archivo local, ignorado por git).
+
+% \entry{titulo}{fechas}{lugar / contexto}
+\newcommand{\entry}[3]{%
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X@{\hspace{1em}}r@{}}
+    \textbf{#1} & {\color{gris}#2}
+  \end{tabularx}\\
+  {\color{gris}\small #3}\par\vspace{2pt}}
+
+\begin{document}
+
+% ==================================================
+% Encabezado
+% ==================================================
+\begin{center}
+  {\LARGE\scshape Henry Barrera}\\[4pt]
+  {\color{gris} Estudiante de Maestr\'ia en Matem\'atica Aplicada \textperiodcentered{} Bogot\'a, Colombia}\\[3pt]
+  \small
+  \href{mailto:hbarrera@unal.edu.co}{hbarrera@unal.edu.co}
+  \IfFileExists{phone.tex}{\textperiodcentered{} \input{phone.tex}}{}
+  \textperiodcentered{} \href{https://henry2899.github.io}{henry2899.github.io}
+  \textperiodcentered{} \href{https://github.com/Henry2899}{GitHub}
+  \textperiodcentered{} \href{https://www.linkedin.com/in/henry-barrera-3422981aa}{LinkedIn}
+\end{center}
+
+% ==================================================
+\section{Perfil}
+% ==================================================
+Matem\'atico de la Universidad Nacional de Colombia y estudiante de la Maestr\'ia en Ciencias --
+Matem\'atica Aplicada, con tesis en optimizaci\'on discreta y computaci\'on cu\'antica. Construyo modelos
+matem\'aticos de problemas reales, los resuelvo num\'ericamente, estimo sus par\'ametros a partir de datos
+y eval\'uo hasta d\'onde se puede confiar en los resultados. Experiencia en programaci\'on entera, modelos
+con ecuaciones diferenciales, inferencia bayesiana y cuantificaci\'on de incertidumbre, principalmente en
+Python y Julia.
+
+% ==================================================
+\section{Formaci\'on acad\'emica}
+% ==================================================
+\entry{Maestr\'ia en Ciencias -- Matem\'atica Aplicada}{2026 -- 2028 (esperado)}{Universidad Nacional de Colombia, Bogot\'a}
+Tesis (en curso): optimizaci\'on discreta y computaci\'on cu\'antica, con el problema del agente viajero
+como problema de referencia.
+
+\vspace{4pt}
+\entry{Matem\'atico}{2019 -- 2026}{Universidad Nacional de Colombia, Bogot\'a}
+
+% ==================================================
+\section{Experiencia en investigaci\'on}
+% ==================================================
+\entry{Auxiliar de investigaci\'on (estudiante) -- proyecto HERMES 500}{2026}{Universidad Nacional de Colombia
+  \textperiodcentered{} Director: Prof.\ Vladimir Angulo Castillo \textperiodcentered{}
+  \href{https://github.com/Henry2899/ic50-uncertainty-toolkit}{herramienta (datos sint\'eticos)}}
+\begin{itemize}
+  \item Constru\'i un flujo de trabajo reproducible en Python para el ensayo antioxidante DPPH; estim\'e
+        valores de IC$_{50}$ por m\'inimos cuadrados ordinarios y ponderados.
+  \item Cuantifiqu\'e la incertidumbre del IC$_{50}$ con tres m\'etodos independientes: m\'etodo delta,
+        simulaci\'on Monte Carlo y bootstrap no param\'etrico.
+  \item Dise\~n\'e un sistema de inferencia difusa de Mamdani (2 entradas, 9 reglas) que combina potencia
+        antioxidante y precisi\'on experimental en un \'indice de clasificaci\'on de 0 a 100.
+  \item Audit\'e un modelo difuso propuesto dentro del proyecto y report\'e 8 problemas metodol\'ogicos
+        (supuestos de interpolaci\'on y extrapolaci\'on, funciones de pertenencia, reglas incompletas).
+  \item Analic\'e el contenido de fenoles totales en cinco especies vegetales con ANOVA, comparaciones de
+        Tukey y verificaci\'on de supuestos (Shapiro--Wilk, Levene).
+\end{itemize}
+
+% ==================================================
+\section{Proyectos}
+% ==================================================
+\entry{Optimizaci\'on discreta y computaci\'on cu\'antica (tesis de maestr\'ia)}{2026 -- actual}{Basado en
+  Bochkarev et al., \emph{European Journal of Operational Research} (2025)}
+\begin{itemize}
+  \item Model\'e el TSP con las formulaciones de Dantzig--Fulkerson--Johnson, Miller--Tucker--Zemlin y de
+        asignaci\'on cuadr\'atica, y compar\'e su tama\~no.
+  \item Resolv\'i instancias de referencia con Gurobi; siguiente etapa: reformulaci\'on QUBO para
+        recocido cu\'antico y algoritmos cu\'anticos variacionales.
+\end{itemize}
+
+\entry{Ubicaci\'on de generaci\'on solar distribuida en una red el\'ectrica urbana}{2026}{Proyecto de tesis
+  exploratorio, en pausa \textperiodcentered{} Python, NetworkX \textperiodcentered{}
+  \href{https://github.com/Henry2899/pvgraph}{repositorio}}
+\begin{itemize}
+  \item Constru\'i un paquete de Python (44 pruebas automatizadas) para la red de distribuci\'on de Yopal
+        (Casanare): construcci\'on del grafo, validaci\'on de datos y verificaci\'on de tensiones
+        (LinDistFlow), cargabilidad, p\'erdidas y radialidad sobre una red sint\'etica reproducible de
+        322 nodos.
+  \item Formul\'e un modelo entero mixto para ubicar generaci\'on fotovoltaica y una etapa de pron\'ostico
+        de demanda; no se implementaron antes de pausar el proyecto.
+\end{itemize}
+
+\entry{Recocido simulado para el problema del agente viajero}{2026}{Curso de Cadenas de Markov
+  \textperiodcentered{} con L.\ Torres \textperiodcentered{}
+  \href{https://github.com/Henry2899/cadenas-markov-aplicaciones}{repositorio}}
+\begin{itemize}
+  \item Recocido simulado estudiado como una cadena de Markov sobre el espacio de recorridos.
+\end{itemize}
+
+\entry{Un modelo HSIR del dengue en Neiva, 2024}{2025}{Curso de An\'alisis Num\'erico (Prof.\ Juan Carlos
+  Galvis) \textperiodcentered{} equipo de tres \textperiodcentered{} Python, Julia \textperiodcentered{}
+  \href{https://github.com/Henry2899/dengue-hsir-neiva}{repositorio}}
+\begin{itemize}
+  \item Constru\'i el conjunto de datos a partir de los boletines epidemiol\'ogicos semanales del Huila:
+        escrib\'i scripts de extracci\'on para un formato que cambi\'o durante el a\~no (PyMuPDF,
+        pdfplumber, expresiones regulares, OCR con pytesseract) y complet\'e los datos con transcripci\'on
+        manual donde la extracci\'on autom\'atica no era confiable.
+  \item El equipo ajust\'o el modelo por m\'inimos cuadrados e inferencia bayesiana (Turing.jl) y
+        compar\'o cinco integradores num\'ericos.
+\end{itemize}
+
+\entry{Modelaci\'on orbital del sat\'elite Starlink-1106}{2025}{Curso de Modelaci\'on Matem\'atica I
+  \textperiodcentered{} equipo de cuatro \textperiodcentered{} Julia \textperiodcentered{}
+  \href{https://github.com/Henry2899/starlink-1106-orbit}{repositorio}}
+\begin{itemize}
+  \item Cuatro modelos orbitales de complejidad creciente (achatamiento terrestre, arrastre atmosf\'erico,
+        perturbaciones lunares y solares, correcciones relativistas) ajustados a efem\'erides reales con
+        Nelder--Mead y Metropolis--Hastings.
+  \item El mejor modelo redujo el residuo de m\'inimos cuadrados de $1.96\times10^{9}$ a
+        $2.87\times10^{6}$.
+\end{itemize}
+
+% ==================================================
+\section{Charlas y seminarios}
+% ==================================================
+\entry{Matem\'atica experimental en combinatoria: casos, simetr\'ias y c\'omputo}{dic.\ 2026}{Combinata:
+  Encuentro de Combinatoria, \'Algebra, Teor\'ia de N\'umeros y sus Aplicaciones \textperiodcentered{}
+  UPTC, Duitama}
+\entry{Chasing the Shortest Route: Inside the Traveling Salesman Problem}{nov.\ 2026}{Seminario de
+  Matem\'atica Aplicada \textperiodcentered{} Universidad Nacional de Colombia \textperiodcentered{} en ingl\'es}
+\entry{El atractor de Lorenz y el atractor geom\'etrico de Lorenz}{jul.\ 2026}{Seminario de Din\'amica
+  Hiperb\'olica \textperiodcentered{} Universidad Nacional de Colombia}
+
+% ==================================================
+\section{Tutor\'ias}
+% ==================================================
+Tutor de matem\'aticas, Universidad Nacional de Colombia (feb. -- jun. 2023) \textperiodcentered{}
+Tutor particular de matem\'aticas, Bogot\'a (2023 -- actual)
+
+% ==================================================
+\section{Habilidades}
+% ==================================================
+\begin{tabularx}{\textwidth}{@{}p{3.2cm}X@{}}
+  Programaci\'on & Python (NumPy, SciPy, pandas, statsmodels, NetworkX, matplotlib, pytest),
+                Julia (DifferentialEquations.jl, Turing.jl, Optim.jl), SQL \\
+  Optimizaci\'on & Programaci\'on entera con Gurobi (gurobipy), heur\'isticas y metaheur\'isticas \\
+  Estad\'istica & Regresi\'on (MCO/MCP), ANOVA, inferencia bayesiana y MCMC, Monte Carlo, bootstrap \\
+  Otras & \LaTeX, Git, Power BI, Excel \\
+  Idiomas & Espa\~nol (nativo), ingl\'es (B1), italiano (principiante)
+\end{tabularx}
+
+% ==================================================
+\section{Formaci\'on complementaria}
+% ==================================================
+Python para ciencia de datos (Pontificia Universidad Cat\'olica de Chile) \textperiodcentered{}
+An\'alisis y visualizaci\'on de datos (University at Buffalo) \textperiodcentered{}
+Pruebas de hip\'otesis con Python y Excel (Tufts University) \textperiodcentered{}
+Especializaci\'on en Finanzas Corporativas (UNAM)
+
+\end{document}

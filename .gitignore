@@ -1,0 +1,10 @@
+cv/*.aux
+cv/*.log
+cv/*.out
+cv/*.fls
+cv/*.fdb_latexmk
+cv/*.synctex.gz
+cv/cv.pdf
+cv/cv-es.pdf
+cv/phone.tex
+phone.tex
